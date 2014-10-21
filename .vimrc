@@ -38,3 +38,6 @@ NeoBundleCheck
 " Set font and color scheme
 set guifont=Consolas:h22
 colorscheme grb256
+
+" Have vim fill up the screen
+set lines=9999 columns=999

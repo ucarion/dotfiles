@@ -1,0 +1,7 @@
+[user]
+	name = Ulysse Carion
+	email = ulysse@ulysse.io
+[push]
+	default = simple
+[core]
+	excludesfile = /Users/ulyssecarion/.gitignore_global

@@ -26,7 +26,6 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'hdima/python-syntax'
-NeoBundle 'scrooloose/nerdcommenter'
 
 call neobundle#end()
 
@@ -38,6 +37,16 @@ set expandtab
 " If there are uninstalled bundles found on startup, this will conveniently
 " prompt you to install them.
 NeoBundleCheck
+
+let mapleader=","
+
+nnoremap <leader><leader> <c-^>
+
+" A set of functions to insert and remove lines above and below the cursor.
+nnoremap <leader>k m`O<esc>``
+nnoremap <leader>j m`o<esc>``
+nnoremap <leader>dk m`kdd``
+nnoremap <leader>dj m`jdd``
 
 " Set font and color scheme
 set guifont=Consolas:h22

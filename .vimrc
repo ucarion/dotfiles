@@ -34,12 +34,19 @@ filetype plugin indent on
 set smartindent
 set expandtab
 
+" Default to 2-space tabs. Other languages can override this default.
+set tabstop=2
+set shiftwidth=2
+
 " If there are uninstalled bundles found on startup, this will conveniently
 " prompt you to install them.
 NeoBundleCheck
 
+set nowrap
+
 let mapleader=","
 
+" Use double-leader to quickly switch between two latest files.
 nnoremap <leader><leader> <c-^>
 
 " A set of functions to insert and remove lines above and below the cursor.
@@ -49,17 +56,15 @@ nnoremap <leader>dk m`kdd``
 nnoremap <leader>dj m`jdd``
 
 " Set font and color scheme
+set t_Co=256
+syntax on
 set guifont=Consolas:h22
-colorscheme lucius
+colorscheme zenburn
 set background=dark
 
-" Have vim fill up the screen
-set lines=9999 columns=999
-
-" Highlight a ruler at 70 characters.
+" Highlight a ruler at 80 characters.
 set colorcolumn=80
 
 " And add support for hard-wrapping to enforce that limit.
 set textwidth=80
 
-" hi NonText guifg=DarkGray

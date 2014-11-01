@@ -6,9 +6,7 @@ alias .....="cd ../../../.."
 alias ~="cd ~" # `cd` is probably faster to type though
 alias -- -="cd -"
 
-# I never use "vi" or "vim". I use "gvim"!
-# alias vi="gvim"
-# alias vim="gvim"
+alias big_text="echo -e \"\\033]50;SetProfile=Big Text\\a\""
 
 alias py="python3"
 alias scm="rlwrap scheme"

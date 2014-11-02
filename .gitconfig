@@ -4,6 +4,6 @@
 [push]
 	default = simple
 [core]
-        excludesfile = /Users/ulyssecarion/.gitignore_global
+	excludesfile = /Users/ulyssecarion/.gitignore_global
 [alias]
         aa = add --all

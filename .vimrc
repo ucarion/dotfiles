@@ -45,8 +45,9 @@ NeoBundleCheck
 
 set nowrap
 
-let mapleader=","
-map <space> <leader>
+" Use space as leader.
+let mapleader=" "
+nnoremap <space> <nop>
 
 inoremap jk <esc>
 

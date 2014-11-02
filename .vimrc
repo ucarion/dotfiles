@@ -26,6 +26,7 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'hdima/python-syntax'
+NeoBundle 'tpope/vim-sensible'
 
 call neobundle#end()
 
@@ -45,6 +46,9 @@ NeoBundleCheck
 set nowrap
 
 let mapleader=","
+map <space> <leader>
+
+inoremap jk <esc>
 
 " Use double-leader to quickly switch between two latest files.
 nnoremap <leader><leader> <c-^>

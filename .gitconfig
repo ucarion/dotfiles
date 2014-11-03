@@ -6,4 +6,5 @@
 [core]
 	excludesfile = /Users/ulyssecarion/.gitignore_global
 [alias]
-        aa = add --all
+  aa = add --all
+  dc = diff --cached

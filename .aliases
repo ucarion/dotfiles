@@ -9,7 +9,7 @@ alias -- -="cd -"
 alias big_text="echo -e \"\\033]50;SetProfile=Big Text\\a\""
 
 alias py="python3"
-alias scm="rlwrap scheme"
+alias scm="rlwrap stk"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`

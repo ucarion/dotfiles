@@ -27,6 +27,9 @@ NeoBundle 'flazz/vim-colorschemes'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'hdima/python-syntax'
 NeoBundle 'tpope/vim-sensible'
+NeoBundle 'wting/rust.vim'
+NeoBundle 'cespare/vim-toml'
+NeoBundle 'tmhedberg/matchit'
 
 call neobundle#end()
 
@@ -50,6 +53,7 @@ let mapleader=" "
 nnoremap <space> <nop>
 
 inoremap jk <esc>
+inoremap <esc> <nop>
 
 " Use double-leader to quickly switch between two latest files.
 nnoremap <leader><leader> <c-^>
@@ -63,7 +67,7 @@ nnoremap <leader>dj m`jdd``
 " Set font and color scheme
 set t_Co=256
 syntax on
-set guifont=Consolas
+" set guifont=Source\ Code\ Pro\ 21
 colorscheme zenburn
 
 " Show line numbers
@@ -75,6 +79,9 @@ set colorcolumn=80
 " And add support for hard-wrapping to enforce that limit.
 set textwidth=80
 
+" Highlight current line
+set cursorline
+
 " Remove trailing whitespace on save.
 fun! <SID>StripTrailingWhitespaces()
       let l = line(".")
@@ -84,6 +91,15 @@ fun! <SID>StripTrailingWhitespaces()
 endfun
 
 autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
+
+function! MakeTestCmd(cmd)
+  call feedkeys(":map <leader>t :w\\|:!" . a:cmd . "<cr>\n")
+endfunction
+
+command! -nargs=1 MkTest call MakeTestCmd(<f-args>)
+
+" Get CtrlP to ignore gitignored files.
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
 " Stuff from Gary Bernhardt.
 
@@ -122,7 +138,7 @@ function! RunNearestTest()
 endfunction
 
 " Run this file
-map <leader>t :call RunTestFile()<cr>
+" map <leader>t :call RunTestFile()<cr>
 " Run only the example under the cursor
 map <leader>T :call RunNearestTest()<cr>
 " Run all test files

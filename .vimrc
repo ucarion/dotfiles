@@ -30,6 +30,7 @@ NeoBundle 'tpope/vim-sensible'
 NeoBundle 'wting/rust.vim'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'tmhedberg/matchit'
+NeoBundle 'chriskempson/base16-vim'
 
 call neobundle#end()
 
@@ -55,6 +56,15 @@ nnoremap <space> <nop>
 inoremap jk <esc>
 inoremap <esc> <nop>
 
+" Make navigating splits easier.
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+set splitbelow
+set splitright
+
 " Use double-leader to quickly switch between two latest files.
 nnoremap <leader><leader> <c-^>
 
@@ -68,7 +78,9 @@ nnoremap <leader>dj m`jdd``
 set t_Co=256
 syntax on
 " set guifont=Source\ Code\ Pro\ 21
-colorscheme zenburn
+set background=dark
+let base16colorspace=256
+colorscheme base16-default
 
 " Show line numbers
 set number
@@ -78,6 +90,7 @@ set colorcolumn=80
 
 " And add support for hard-wrapping to enforce that limit.
 set textwidth=80
+set tw=80
 
 " Highlight current line
 set cursorline

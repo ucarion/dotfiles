@@ -31,6 +31,7 @@ NeoBundle 'wting/rust.vim'
 NeoBundle 'cespare/vim-toml'
 NeoBundle 'tmhedberg/matchit'
 NeoBundle 'chriskempson/base16-vim'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 call neobundle#end()
 
@@ -56,12 +57,6 @@ nnoremap <space> <nop>
 inoremap jk <esc>
 inoremap <esc> <nop>
 
-" Make navigating splits easier.
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
-
 set splitbelow
 set splitright
 
@@ -85,12 +80,6 @@ colorscheme base16-default
 " Show line numbers
 set number
 
-" Highlight a ruler at 80 characters.
-set colorcolumn=80
-
-" And add support for hard-wrapping to enforce that limit.
-set textwidth=80
-set tw=80
 
 " Highlight current line
 set cursorline
@@ -158,3 +147,10 @@ map <leader>T :call RunNearestTest()<cr>
 map <leader>a :call RunTests('spec')<cr>
 
 " End of Gary stuff.
+
+" Highlight a ruler at 80 characters.
+set colorcolumn=80
+
+" And add support for hard-wrapping to enforce that limit.
+set textwidth=80
+set tw=80

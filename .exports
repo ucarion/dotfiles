@@ -25,3 +25,6 @@ export GREP_OPTIONS="--color=auto";
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications";
+
+export CS61B_LAB_DIR="/Users/ulyssecarion/berkeley/cs61b/ahl/lib/*"
+export CLASSPATH="$CLASSPATH:$CS61B_LAB_DIR:./"

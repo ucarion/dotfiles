@@ -32,6 +32,9 @@ NeoBundle 'cespare/vim-toml'
 NeoBundle 'tmhedberg/matchit'
 NeoBundle 'chriskempson/base16-vim'
 NeoBundle 'christoomey/vim-tmux-navigator'
+NeoBundle 'godlygeek/tabular'
+NeoBundle 'tpope/vim-sleuth'
+NeoBundle 'plasticboy/vim-markdown'
 
 call neobundle#end()
 
@@ -39,6 +42,19 @@ call neobundle#end()
 filetype plugin indent on
 set smartindent
 set expandtab
+
+set formatoptions=
+set formatoptions+=r  " Continue comments by default
+set formatoptions+=o  " Make comment when using o or O from comment line
+set formatoptions+=q  " Format comments with gq
+set formatoptions+=n  " Recognize numbered lists
+set formatoptions+=2  " Use indent from 2nd line of a paragraph
+set formatoptions+=l  " Don't break lines that are already long
+set formatoptions+=c  " Format comments
+set formatoptions+=t  " Wrap when using textwidth
+set formatoptions+=1  " Break before 1-letter words
+set formatoptions+=j  " Remove comment characters when joining lines
+set formatlistpat=^\\s*\\(\\d\\+\\\|\\*\\\|-\\\|•\\)[\\]:.)}\\t\ ]\\s*
 
 " Default to 2-space tabs. Other languages can override this default.
 set tabstop=2
@@ -49,6 +65,9 @@ set shiftwidth=2
 NeoBundleCheck
 
 set nowrap
+
+" Set swap-file location
+set directory=$HOME/.vim/swapfiles//
 
 " Use space as leader.
 let mapleader=" "
@@ -61,7 +80,7 @@ set splitbelow
 set splitright
 
 " Use double-leader to quickly switch between two latest files.
-nnoremap <leader><leader> <c-^>
+nnoremap <leader><leader> :w<cr><c-^>
 
 " A set of functions to insert and remove lines above and below the cursor.
 nnoremap <leader>k m`O<esc>``
@@ -102,6 +121,9 @@ command! -nargs=1 MkTest call MakeTestCmd(<f-args>)
 
 " Get CtrlP to ignore gitignored files.
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+let g:NERDTreeChDirMode       = 2
+let g:ctrlp_working_path_mode = 'rw'
 
 " Stuff from Gary Bernhardt.
 
@@ -154,3 +176,7 @@ set colorcolumn=80
 " And add support for hard-wrapping to enforce that limit.
 set textwidth=80
 set tw=80
+
+" Close YCM preview window
+let g:ycm_autoclose_preview_window_after_completion = 1
+let g:EclimCompletionMethod = 'omnifunc'

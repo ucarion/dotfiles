@@ -4,13 +4,18 @@ let mapleader=" "
 " Enable syntax highlighting
 syntax on
 
+" Indent with tabs, default to two spaces
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+
 " Show line numbers
 set number
 
 " Aliases
 inoremap kj <Esc>
-nmap <Leader>k m`O<Esc>``
-nmap <Leader>j m`o<Esc>``
+nnoremap <Leader>k m`O<Esc>``
+nnoremap <Leader>j m`o<Esc>``
 
 " Specify a test program
 function! MakeTestCmd(cmd)
@@ -38,6 +43,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 " Add or remove your Bundles here:
 NeoBundle 'tpope/vim-unimpaired'
+NeoBundle 'bling/vim-airline'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }

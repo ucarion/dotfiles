@@ -9,18 +9,34 @@ set expandtab
 set shiftwidth=2
 set softtabstop=2
 
+" Show search results as they come, ignore case unless uppercase appears
+set incsearch
+set ignorecase
+set smartcase
+
+" Prefer 80-char width lines, highlight that position
+set textwidth=80
+set colorcolumn=+0
+
 " Show line numbers
 set number
 
 " Aliases
 inoremap kj <Esc>
-nnoremap <Leader>k m`O<Esc>``
+nnoremap <Leader>k m`O<Esc>`` 
 nnoremap <Leader>j m`o<Esc>``
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 " Specify a test program
 function! MakeTestCmd(cmd)
   call feedkeys(":map <leader>t :w\\|:!" . a:cmd . "<cr>\n")
 endfunction
+
+" Activate airline by default
+set laststatus=2
 
 command! -nargs=1 MkTest call MakeTestCmd(<f-args>)
 
@@ -44,6 +60,8 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " Add or remove your Bundles here:
 NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'bling/vim-airline'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'rust-lang/rust.vim'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }

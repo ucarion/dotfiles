@@ -4,10 +4,20 @@ let mapleader=" "
 " Enable syntax highlighting
 syntax on
 
+" Enable mouse scrolling
+set mouse=a
+
 " Indent with tabs, default to two spaces
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+
+"Enable hidden buffers
+set hidden
+
+" For Rust (Racer) completions
+let g:racer_cmd = "/Users/ulyssecarion/rust/racer/target/release/racer"
+let $RUST_SRC_PATH="/Users/ulyssecarion/rust/rust/src/"
 
 " Show search results as they come, ignore case unless uppercase appears
 set incsearch
@@ -23,7 +33,7 @@ set number
 
 " Aliases
 inoremap kj <Esc>
-nnoremap <Leader>k m`O<Esc>`` 
+nnoremap <Leader>k m`O<Esc>``
 nnoremap <Leader>j m`o<Esc>``
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
@@ -34,6 +44,16 @@ nnoremap <C-l> <C-w>l
 function! MakeTestCmd(cmd)
   call feedkeys(":map <leader>t :w\\|:!" . a:cmd . "<cr>\n")
 endfunction
+
+" Delete trailing whitespace on write
+fun! <SID>StripTrailingWhitespaces()
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
+endfun
+
+autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 
 " Activate airline by default
 set laststatus=2
@@ -62,6 +82,13 @@ NeoBundle 'tpope/vim-unimpaired'
 NeoBundle 'bling/vim-airline'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'rust-lang/rust.vim'
+NeoBundle 'racer-rust/vim-racer', {
+\   'build' : {
+\     'mac': 'cargo build --release',
+\     'unix': 'cargo build --release',
+\   }
+\ }
+NeoBundle 'scrooloose/nerdtree'
 
 " You can specify revision/branch/tag.
 NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }

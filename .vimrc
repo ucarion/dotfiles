@@ -1,3 +1,41 @@
+" NeoBundle Scripts-----------------------------
+if has('vim_starting')
+  if &compatible
+    set nocompatible               " Be iMproved
+  endif
+
+  " Required:
+  set runtimepath+=/home/ulysse/.vim/bundle/neobundle.vim/
+endif
+
+" Required:
+call neobundle#begin(expand('/home/ulysse/.vim/bundle'))
+
+" Let NeoBundle manage NeoBundle
+" Required:
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" Add or remove your Bundles here:
+NeoBundle 'Shougo/neosnippet.vim'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'flazz/vim-colorschemes'
+
+" You can specify revision/branch/tag.
+NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
+
+" Required:
+call neobundle#end()
+
+" Required:
+filetype plugin indent on
+
+" If there are uninstalled bundles found on startup,
+" this will conveniently prompt you to install them.
+NeoBundleCheck
+" End NeoBundle Scripts-------------------------
+
 " Use space as leader
 let mapleader=" "
 
@@ -14,10 +52,6 @@ set softtabstop=2
 
 "Enable hidden buffers
 set hidden
-
-" For Rust (Racer) completions
-let g:racer_cmd = "/Users/ulyssecarion/rust/racer/target/release/racer"
-let $RUST_SRC_PATH="/Users/ulyssecarion/rust/rust/src/"
 
 " Show search results as they come, ignore case unless uppercase appears
 set incsearch
@@ -59,47 +93,3 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 set laststatus=2
 
 command! -nargs=1 MkTest call MakeTestCmd(<f-args>)
-
-" NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  if &compatible
-    set nocompatible               " Be iMproved
-  endif
-
-  " Required:
-  set runtimepath+=/Users/ulyssecarion/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('/Users/ulyssecarion/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
-
-" Add or remove your Bundles here:
-NeoBundle 'tpope/vim-unimpaired'
-NeoBundle 'bling/vim-airline'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'rust-lang/rust.vim'
-NeoBundle 'racer-rust/vim-racer', {
-\   'build' : {
-\     'mac': 'cargo build --release',
-\     'unix': 'cargo build --release',
-\   }
-\ }
-NeoBundle 'scrooloose/nerdtree'
-
-" You can specify revision/branch/tag.
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
-
-" Required:
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-" End NeoBundle Scripts-------------------------
